@@ -23,7 +23,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import logo from '../../assets/logo.svg';
+//For nextjs, use url to import files
+// import logo from '../../assets/logo.svg';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -672,7 +673,7 @@ const Header = (props) => {
               onClick={() => props.setValue(0)} //change indicator to Home
               disableRipple //disable default repple effect (if you want, you can leave it as default)
             >
-              <img src={logo} alt="company logo" className={classes.logo} />
+              <img src="/assets/logo.svg" alt="company logo" className={classes.logo} />
             </Button>
             {matches ? drawer : tabs}
             {/* https://material-ui.com/api/typography/ */}

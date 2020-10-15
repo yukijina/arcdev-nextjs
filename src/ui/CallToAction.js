@@ -7,8 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from './ButtonArrow';
 
-import background from '../../assets/background.jpg';
-import mobileBackground from '../../assets/mobileBackground.jpg';
+// For Nextjs we don't import. Instead, use directory
+// import background from '../../assets/background.jpg';
+// import mobileBackground from '../../assets/mobileBackground.jpg';
 
 const useStyles = makeStyles((theme) => ({
   learnButton: {
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   background: {
-    backgroundImage: `url(${background})`,
+    // backgroundImage: `url(${background})`,
+    backgroundImage: url("/assets/background.jpg"),
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -30,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     //image is fixed when scroll down and up. Only text move up and down
     backgroundAttachment: 'fixed',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: `url(${mobileBackground})`,
+      backgroundImage: url("/assets/mobileBackground.jpg"),
+      // backgroundImage: `url(${mobileBackground})`,
       //inherit means static (not fixed)
       backgroundAttachment: 'inherit',
     },

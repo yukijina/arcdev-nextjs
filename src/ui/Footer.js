@@ -4,10 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden'; //Hidden when screen size is small
 
-import footerAdornment from '../../assets/Footer Adornment.svg';
-import facebook from '../../assets/facebook.svg';
-import twitter from '../../assets/twitter.svg';
-import instagram from '../../assets/instagram.svg';
+// For Nextjs, we import using url
+// import footerAdornment from '../../assets/Footer Adornment.svg';
+// import facebook from '../../assets/facebook.svg';
+// import twitter from '../../assets/twitter.svg';
+// import instagram from '../../assets/instagram.svg';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -224,7 +225,7 @@ export default function Footer(props) {
         </Grid>
       </Hidden>
       <img
-        src={footerAdornment}
+        src="/assets/footerAdornment.svg"
         alt="black decorative slash"
         className={classes.adornment}
       />
@@ -243,7 +244,7 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src={facebook} alt="facebook logo" className={classes.icon} />
+          <img src="/assets/facebook.svg" alt="facebook logo" className={classes.icon} />
         </Grid>
         <Grid
           item
@@ -252,7 +253,7 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src={twitter} alt="twitter logo" className={classes.icon} />
+          <img src="/assets/twitter.svg" alt="twitter logo" className={classes.icon} />
         </Grid>
         <Grid
           item
@@ -261,7 +262,7 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src={instagram} alt="instagram logo" className={classes.icon} />
+          <img src="/assets/instagram.svg" alt="instagram logo" className={classes.icon} />
         </Grid>
       </Grid>
     </footer>
