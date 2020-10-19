@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import  Link  from '../src/Link';
 import axios from 'axios';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -12,24 +12,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Snackbar from '@material-ui/core/Snackbar';
 
-import ButtonArrow from './ui/ButtonArrow';
-
-import background from '../assets/background.jpg';
-import mobileBackground from '../assets/mobileBackground.jpg';
-import phoneIcon from '../assets/phone.svg';
-import emailIcon from '../assets/email.svg';
-import airplane from '../assets/send.svg';
+import ButtonArrow from '../src/ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: url("/assets/background.jpg"),
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '60em',
     paddingBottom: '10em',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: `url(${mobileBackground})`,
+      backgroundImage: url("/assets/mobileBackground.jpg"),
     },
   },
   estimateButton: {
@@ -179,7 +173,7 @@ export default function Contact(props) {
   const buttonContents = (
     <>
       Send Message
-      <img src={airplane} alt="paper airplaine" style={{ marginLeft: '1em' }} />
+      <img src="/assets/send.svg" alt="paper airplaine" style={{ marginLeft: '1em' }} />
     </>
   );
 
@@ -220,7 +214,7 @@ export default function Contact(props) {
             <Grid item container style={{ marginTop: '2em' }}>
               <Grid item>
                 <img
-                  src={phoneIcon}
+                  src="/assets/phoneIcon.svg"
                   alt="phone"
                   style={{ marginRight: '0.5em' }}
                 />
@@ -243,7 +237,7 @@ export default function Contact(props) {
             <Grid item container style={{ margiBottom: '2em' }}>
               <Grid item>
                 <img
-                  src={emailIcon}
+                  src="/assets/emailIcon.svg"
                   alt="envelope"
                   style={{ marginRight: '0.5em', verticalAlign: 'bottom' }}
                 />
@@ -504,7 +498,7 @@ export default function Contact(props) {
               <Grid container justify={matchesMD ? 'center' : undefined} item>
                 <Button
                   component={Link}
-                  to="/revolution"
+                  href="/revolution"
                   variant="outlined"
                   className={classes.learnButton}
                   onClick={() => {
@@ -525,7 +519,7 @@ export default function Contact(props) {
         <Grid item>
           <Button
             component={Link}
-            to="/estimate"
+            href="/estimate"
             variant="contained"
             className={classes.estimateButton}
             onClick={() => {
