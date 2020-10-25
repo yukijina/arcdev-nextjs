@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import { Link } from 'react-router-dom';
+import Link from '../src/Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -8,10 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CallToAction from './ui/CallToAction';
+import CallToAction from './src/ui/CallToAction';
 
-import ButtonArrow from './ui/ButtonArrow';
-import animationData from '../animations/landinganimation/data';
+import ButtonArrow from './src/ui/ButtonArrow';
+import animationData from '../src/animations/landinganimation/data';
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websitesIcon from '../assets/websiteIcon.svg';
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   revolutionBackground: {
-    backgroundImage: `url(${revolutionBackground})`,
+    backgroundImage: url("/assets/repeatingBackground.svg"),
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   infoBackground: {
-    backgroundImage: `url(${infoBackground})`,
+    backgroundImage: url("/assets/infoBackground.svg"),
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -168,7 +168,7 @@ export default function LandingPage(props) {
               <Grid item>
                 <Button
                   component={Link}
-                  to="/estimate"
+                  href="/estimate"
                   className={classes.estimateButton}
                   variant="contained"
                   onClick={() => props.setValue(5)}
@@ -179,7 +179,7 @@ export default function LandingPage(props) {
               <Grid item>
                 <Button
                   component={Link}
-                  to="/revolution"
+                  href="/revolution"
                   variant="outlined"
                   className={classes.learnButtonHero}
                   onClick={() => props.setValue(2)}
@@ -227,7 +227,7 @@ export default function LandingPage(props) {
             </Typography>
             <Button
               component={Link}
-              to="/customsoftware"
+              href="/customsoftware"
               variant="outlined"
               className={classes.learnButton}
               onClick={() => {
@@ -246,7 +246,7 @@ export default function LandingPage(props) {
           <Grid item>
             <img
               alt="custom software icon"
-              src={customSoftwareIcon}
+              src="/assets/customSoftwareIcon.svg"
               className={classes.icon}
             />
           </Grid>
@@ -278,7 +278,7 @@ export default function LandingPage(props) {
               </Typography>
               <Button
                 component={Link}
-                to="/mobileapps"
+                href="/mobileapps"
                 variant="outlined"
                 className={classes.learnButton}
                 onClick={() => {
@@ -288,7 +288,7 @@ export default function LandingPage(props) {
               >
                 <span
                   component={Link}
-                  to="/mobileapps"
+                  href="/mobileapps"
                   style={{ marginRight: 10 }}
                 >
                   Learn More
@@ -303,7 +303,7 @@ export default function LandingPage(props) {
             <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
               <img
                 alt="mobile phone icon"
-                src={mobileAppsIcon}
+                src="/assets/mobileIcon.svg"
                 className={classes.icon}
               />
             </Grid>
@@ -336,7 +336,7 @@ export default function LandingPage(props) {
               </Typography>
               <Button
                 component={Link}
-                to="/websites"
+                href="/websites"
                 variant="outlined"
                 className={classes.learnButton}
                 onClick={() => {
@@ -355,7 +355,7 @@ export default function LandingPage(props) {
             <Grid item>
               <img
                 alt="website icon"
-                src={websitesIcon}
+                src="/assets/websiteIcon.svg"
                 className={classes.icon}
               />
             </Grid>
@@ -388,7 +388,7 @@ export default function LandingPage(props) {
                   </Typography>
                   <Button
                     component={Link}
-                    to="/revolution"
+                    href="/revolution"
                     variant="outlined"
                     className={classes.learnButtonHero}
                     onClick={() => {
@@ -443,7 +443,7 @@ export default function LandingPage(props) {
               <Grid item>
                 <Button
                   component={Link}
-                  to="/about"
+                  href="/about"
                   variant="outlined"
                   style={{
                     color: 'white',
@@ -483,7 +483,7 @@ export default function LandingPage(props) {
               <Grid item>
                 <Button
                   component={Link}
-                  to="/contact"
+                  href="/contact"
                   variant="outlined"
                   style={{
                     color: 'white',
