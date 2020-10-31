@@ -8,15 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CallToAction from './src/ui/CallToAction';
-
-import ButtonArrow from './src/ui/ButtonArrow';
+import CallToAction from '../src/ui/CallToAction';
+import ButtonArrow from '../src/ui/ButtonArrow';
 import animationData from '../src/animations/landinganimation/data';
-import customSoftwareIcon from '../assets/Custom Software Icon.svg';
-import mobileAppsIcon from '../assets/mobileIcon.svg';
-import websitesIcon from '../assets/websiteIcon.svg';
-import revolutionBackground from '../assets/repeatingBackground.svg';
-import infoBackground from '../assets/infoBackground.svg';
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -94,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   revolutionBackground: {
-    backgroundImage: url("/assets/repeatingBackground.svg"),
+    backgroundImage: `url("/assets/repeatingBackground.svg")`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -118,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   infoBackground: {
-    backgroundImage: url("/assets/infoBackground.svg"),
+    backgroundImage: `url("/assets/infoBackground.svg")`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from '../Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   background: {
     // backgroundImage: `url(${background})`,
-    backgroundImage: url("/assets/background.jpg"),
+    backgroundImage: `url("/assets/background.jpg")`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     //image is fixed when scroll down and up. Only text move up and down
     backgroundAttachment: 'fixed',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: url("/assets/mobileBackground.jpg"),
+      backgroundImage: `url("/assets/mobileBackground.jpg")`,
       // backgroundImage: `url(${mobileBackground})`,
       //inherit means static (not fixed)
       backgroundAttachment: 'inherit',
@@ -90,7 +90,7 @@ export default function CallToAction(props) {
             <Grid container justify={matchesSM ? 'center' : undefined} item>
               <Button
                 component={Link}
-                to="/revolution"
+                href="/revolution"
                 variant="outlined"
                 className={classes.learnButton}
                 onClick={() => {
@@ -111,7 +111,7 @@ export default function CallToAction(props) {
       <Grid item>
         <Button
           component={Link}
-          to="/estimate"
+          href="/estimate"
           variant="contained"
           className={classes.estimateButton}
           onClick={() => {
