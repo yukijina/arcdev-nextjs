@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from '../Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden'; //Hidden when screen size is small
@@ -72,7 +72,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(0)}
                 component={Link}
-                to="/"
+                href="/"
               >
                 Home
               </Grid>
@@ -90,7 +90,7 @@ export default function Footer(props) {
                   props.setSelectedIndex(0);
                 }}
                 component={Link}
-                to="/services"
+                href="/services"
               >
                 Services
               </Grid>
@@ -102,7 +102,7 @@ export default function Footer(props) {
                   props.setSelectedIndex(1);
                 }}
                 component={Link}
-                to="/customsoftware"
+                href="/customsoftware"
               >
                 Custom Software Development
               </Grid>
@@ -114,7 +114,7 @@ export default function Footer(props) {
                   props.setSelectedIndex(2);
                 }}
                 component={Link}
-                to="/movbileapps"
+                href="/movbileapps"
               >
                 iOS/Android App Development
               </Grid>
@@ -126,7 +126,7 @@ export default function Footer(props) {
                   props.setSelectedIndex(3);
                 }}
                 component={Link}
-                to="/website"
+                href="/website"
               >
                 Website Development
               </Grid>
@@ -141,7 +141,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(2)}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 The Revolusion
               </Grid>
@@ -150,7 +150,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(2)}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Vision
               </Grid>
@@ -159,7 +159,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(2)}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Technology
               </Grid>
@@ -168,7 +168,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(2)}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Process
               </Grid>
@@ -183,7 +183,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(3)}
                 component={Link}
-                to="/about"
+                href="/about"
               >
                 About Us
               </Grid>
@@ -192,7 +192,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(3)}
                 component={Link}
-                to="/about"
+                href="/about"
               >
                 History
               </Grid>
@@ -201,7 +201,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(3)}
                 component={Link}
-                to="/about"
+                href="/about"
               >
                 Team
               </Grid>
@@ -216,7 +216,7 @@ export default function Footer(props) {
                 className={classes.link}
                 onClick={() => props.setValue(4)}
                 component={Link}
-                to="/contact"
+                href="/contact"
               >
                 Contact Us
               </Grid>

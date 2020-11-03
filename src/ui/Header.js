@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import Link from '../Link';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 // for media quary
@@ -80,6 +80,7 @@ const useStyles = makeStyles((theme) =>
       ...theme.typography.tab,
       minWidth: 10,
       marginLeft: '25px', // We use px here because we want to have consistant space regardless screen size
+      color: '#ffffff'
     },
     button: {
       ...theme.typography.estimate,
@@ -326,7 +327,7 @@ const Header = (props) => {
             key={`${route}${index}`}
             className={classes.tab}
             component={Link}
-            to={route.link}
+            href={route.link}
             label={route.name}
             aria-owns={route.ariaOwns}
             aria-haspopup={route.ariaPopup}
@@ -367,7 +368,7 @@ const Header = (props) => {
       </Tabs>
       <Button
         component={Link}
-        to="/estimate"
+        href="/estimate"
         variant="contained"
         color="secondary"
         className={classes.button}
@@ -392,7 +393,7 @@ const Header = (props) => {
           <MenuItem
             key={`${option}${i}`}
             component={Link}
-            to={option.link}
+            href={option.link}
             classes={{ root: classes.memuItem }}
             onClick={(event) => {
               handleMenuItemClick(event, i);
@@ -481,7 +482,7 @@ const Header = (props) => {
               divider
               button
               component={Link}
-              to={route.link}
+              href={route.link}
               selected={props.value === route.activeIndex}
               classes={{ selected: classes.drawerItemSelected }}
               onClick={() => {
@@ -627,7 +628,7 @@ const Header = (props) => {
             divider
             button
             component={Link}
-            to="/estimate"
+            href="/estimate"
             // className={classes.drawerItemEstimate}
             classes={{
               root: classes.drawerItemEstimate,
@@ -668,7 +669,7 @@ const Header = (props) => {
             {/* Button has padding so we will delete the padding by logoContainer above */}
             <Button
               component={Link}
-              to="/"
+              href="/"
               className={classes.logoContainer}
               onClick={() => props.setValue(0)} //change indicator to Home
               disableRipple //disable default repple effect (if you want, you can leave it as default)
