@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
@@ -44,6 +45,10 @@ export default function About(props) {
 
   return (
     <Grid container direction="column">
+      <Head>
+        {/* This title is displayed in the tab (next to favicon) */}
+        <title key="title">About Us - History & Team | Arc Development</title>
+      </Head>
       <Grid
         item
         className={classes.rowContainer}

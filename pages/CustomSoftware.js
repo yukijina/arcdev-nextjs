@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import Link from '../src/Link';
+import Head from 'next/head'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
@@ -83,6 +84,10 @@ export default function CustomSoftware(props) {
 
   return (
     <Grid container direction="column">
+       <Head>
+        {/* This title is displayed in the tab (next to favicon) */}
+        <title key="title">Custom Software Development and Design - Free Estimate</title>
+      </Head>
       <Grid
         item
         container

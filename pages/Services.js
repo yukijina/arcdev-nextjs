@@ -1,5 +1,6 @@
 import React from 'react';
 import Link  from '../src/Link';
+import Head from 'next/head'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
@@ -37,6 +38,9 @@ const Services = (props) => {
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Grid container direction="column">
+       <Head>
+        <title key="title">Top Custom Software Development Services | Arc Development</title>
+      </Head>
       <Grid item>
         <Typography
           variant="h2"

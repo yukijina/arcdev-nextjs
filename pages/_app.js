@@ -24,6 +24,7 @@ export default function MyApp(props) {
 
   return (
     <React.Fragment>
+      {/* This head is appended every page */}
       <Head>
         <title>My page</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />

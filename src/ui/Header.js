@@ -401,10 +401,10 @@ const Header = (props) => {
               <img src="/assets/logo.svg" alt="company logo" className={classes.logo} />
             </Button>
             {/* we do not use matches ? here avoid strange flash rendering */}
-            <Hidden mdDown>
+            <Hidden smDown>
               {tabs}
             </Hidden>
-            <Hidden lgUp>
+            <Hidden mdUp>
               {drawer}
             </Hidden>
             {/* https://material-ui.com/api/typography/ */}

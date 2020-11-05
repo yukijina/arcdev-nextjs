@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Head from 'next/head';
 import Lottie from 'react-lottie';
 import { cloneDeep } from 'lodash';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -707,6 +708,10 @@ export default function Estimate() {
 
   const softwareSelections = (
     <Grid container direction="column">
+       <Head>
+        {/* This title is displayed in the tab (next to favicon) */}
+        <title key="title">Free Custom Software Estimate | Arc Development</title>
+      </Head>
       <Grid
         item
         container

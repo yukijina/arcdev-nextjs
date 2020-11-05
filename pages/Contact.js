@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import  Link  from '../src/Link';
 import axios from 'axios';
+import Head from 'next/head'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
@@ -179,6 +180,10 @@ export default function Contact(props) {
 
   return (
     <Grid container direction="row">
+       <Head>
+        {/* This title is displayed in the tab (next to favicon) */}
+        <title key="title">Contact Us | Arc Development</title>
+      </Head>
       <Grid
         item
         container

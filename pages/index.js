@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import Link from '../src/Link';
+import Head from 'next/head';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -141,6 +142,9 @@ export default function LandingPage(props) {
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
+       <Head>
+        <title key="title">Custom Software, Mobile Apps, and Website| Arc Development</title>
+      </Head>
       {/* column - 1 */}
       <Grid item>
         {/*---- Hero Block ---- */}
