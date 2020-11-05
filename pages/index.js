@@ -144,6 +144,7 @@ export default function LandingPage(props) {
     <Grid container direction="column" className={classes.mainContainer}>
        <Head>
         <title key="title">Custom Software, Mobile Apps, and Website| Arc Development</title>
+        <meta name="description" key="description" content="Pristine software custom-designed from the ground up with cutting-edge optimizations. Use our free estimate calculator to check your project cost!" />
       </Head>
       {/* column - 1 */}
       <Grid item>

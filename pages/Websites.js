@@ -45,6 +45,7 @@ export default function Websites(props) {
     <Grid container direction="column">
        <Head>
         <title key="title">Stunning Custom Website Design | Arc Development</title>
+        <meta name="description" key="description" content="Commpletely custom desinged and built from scratch to be blazing fast. Optimized code, server-side rendering, and perfecct responsive design | 99% PageSpeed Score." />
       </Head>
       <Grid
         item
