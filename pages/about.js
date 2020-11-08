@@ -48,7 +48,10 @@ export default function About(props) {
       <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">About Us - History & Team | Arc Development</title>
-        <meta name="description" key="description" content="We provide the fastest, most modern, affordable, and aesthetic software design and develioment services in the Midwest. Get a free online estimate now!" />
+        <meta name="description" key="description" content="We provide the fastest, most modern, affordable, and aesthetic software design and development services in the Midwest. Get a free online estimate now!" />
+        <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | About Us" key="og:title" />
+        {/* Add actual url for production */}
+        <meta property="og:url" content="arc.com/about" />
       </Head>
       <Grid
         item

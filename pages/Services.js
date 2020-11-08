@@ -41,6 +41,8 @@ const Services = (props) => {
        <Head>
         <title key="title">Top Custom Software Development Services | Arc Development</title>
         <meta name="description" key="description" content="Cutting-edge software, mobile app, and website development services with sleek custom designs - get a free online estimate instantly!" />
+        <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | Services" key="og:title" />
+        <meta property="og:url" content="arc.com/services" />
       </Head>
       <Grid item>
         <Typography

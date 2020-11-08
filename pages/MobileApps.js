@@ -52,6 +52,8 @@ export default function MobileApps(props) {
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">iOS/Android App Design and Development | Arc Development</title>
         <meta name="description" key="description" content="Mobile Apps Made Easy | Our cutting -edge mobile app development process let us build beautifully designed, carefully crafted apps for both iOS and Android." />
+        <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | iOS/Android Development" key="og:title" />
+        <meta property="og:url" content="arc.com/mobileapps" />
       </Head>
       <Grid
         item
