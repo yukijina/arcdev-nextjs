@@ -89,7 +89,8 @@ export default function CustomSoftware(props) {
         <title key="title">Custom Software Development and Design - Free Estimate</title>
         <meta name="description" key="description" content="Cutting-edge custom software development with gorgeous designs from scratch - let us optimize your business, solving problems insted of creating new ones." />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | Custom Software" key="og:title" />
-        <meta property="og:url" content="arc.com/customsoftware" />
+        <meta property="og:url" key="og:url" content="arc.com/customsoftware" />
+        <link rel="canonical" key="canonical" href="arc.com/customsoftware" />
       </Head>
       <Grid
         item

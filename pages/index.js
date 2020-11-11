@@ -146,7 +146,8 @@ export default function LandingPage(props) {
         <title key="title">Custom Software, Mobile Apps, and Website| Arc Development</title>
         <meta name="description" key="description" content="Pristine software custom-designed from the ground up with cutting-edge optimizations. Use our free estimate calculator to check your project cost!" />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | ArcDevelopment" key="og:title" />
-        <meta property="og:url" content="arc.com" />
+        <meta property="og:url" key="og:url" content="arc.com" />
+        <link rel="canonical" key="canonical" href="arc.com" />
       </Head>
       {/* column - 1 */}
       <Grid item>

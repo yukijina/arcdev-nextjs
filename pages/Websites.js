@@ -47,7 +47,8 @@ export default function Websites(props) {
         <title key="title">Stunning Custom Website Design | Arc Development</title>
         <meta name="description" key="description" content="Commpletely custom desinged and built from scratch to be blazing fast. Optimized code, server-side rendering, and perfecct responsive design | 99% PageSpeed Score." />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | Website" key="og:title" />
-        <meta property="og:url" content="arc.com/websites" />
+        <meta property="og:url" key="og:url" content="arc.com/websites" />
+        <link rel="canonical" key="canonical" href="arc.com/websites" />
       </Head>
       <Grid
         item
