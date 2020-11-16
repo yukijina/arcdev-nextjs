@@ -17,14 +17,14 @@ import ButtonArrow from '../src/ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundImage: url("/assets/background.jpg"),
+    backgroundImage: `url("/assets/background.jpg")`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '60em',
     paddingBottom: '10em',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: url("/assets/mobileBackground.jpg"),
+      backgroundImage: `url("/assets/mobileBackground.jpg")`,
     },
   },
   estimateButton: {
@@ -205,7 +205,7 @@ export default function Contact(props) {
           <Grid container direction="column">
             <Grid item>
               <Typography
-                variant="h2"
+                variant="h1"
                 style={{ lineHight: 1 }}
                 align={matchesMD ? 'center' : undefined}
               >
@@ -492,7 +492,7 @@ export default function Contact(props) {
         >
           <Grid container direction="column">
             <Grid item>
-              <Typography align={matchesMD ? 'center' : undefined} variant="h2">
+              <Typography align={matchesMD ? 'center' : undefined} variant="h1">
                 Simple Software.
                 <br />
                 Revolutionary Results.
