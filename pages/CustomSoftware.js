@@ -96,8 +96,8 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        className={classes.rowContainer}
         justify={matchesMD ? 'center' : undefined}
+        className={classes.rowContainer}
         style={{ marginTop: matchesXS ? '1em' : '2em' }}
       >
         <Hidden mdDown>
@@ -219,7 +219,7 @@ export default function CustomSoftware(props) {
           }}
         >
           <Grid item>
-            <Typography variant="h4">Save Cash</Typography>
+            <Typography variant="h4">Save Money</Typography>
           </Grid>
           <Grid item>
             <img src="/assets/cash.svg" alt="cash" />
@@ -245,16 +245,17 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        justify="space-around"
-        className={classes.rowContainer}
-        direction={matchesMD ? 'column' : 'row'}
         alignItems={matchesMD ? 'center' : undefined}
+        direction={matchesMD ? 'column' : 'row'}
+        justify={matchesMD ? "center" : "space-between"}
+        className={classes.rowContainer}
+        style={{ display: matchesMD ? "grid" : undefined }}
       >
         <Grid
           item
           container
-          direction={matchesSM ? 'column' : 'row'}
           className={classes.itemContainer}
+          direction={matchesSM ? 'column' : 'row'}
           style={{ marginBottom: matchesMD ? '15em' : 0 }}
           md // container stayes each pther until medium
         >
@@ -347,7 +348,7 @@ export default function CustomSoftware(props) {
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
-              src="/assets/root.svg"
+              src="/assets/roots.svg"
               alt="tree with roots extending out"
               height={matchesSM ? '300em' : '450em'}
               width={matchesSM ? '300em' : '450em'}
@@ -373,11 +374,11 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        justify="space-between"
         alignItems={matchesMD ? 'center' : undefined}
         direction={matchesMD ? 'column' : 'row'}
+        justify={matchesMD ? "center" : "space-between"}
+        style={{ marginBottom: '20rem', display: matchesMD ? "grid" : undefined }}
         className={classes.rowContainer}
-        style={{ marginBottom: '20rem' }}
       >
         <Grid
           item

@@ -220,7 +220,7 @@ export default function MobileApps(props) {
         direction={matchesMD ? 'column' : 'row'}
         style={{ marginBottom: '15em' }}
         className={classes.rowContainer}
-        style={{ marginBottom: '15em', display: 'grid'}}
+        style={{ marginBottom: '15em', display: matchesMD ? 'grid' : undefined}}
       >
         <Grid item container direction="column" alignItems="center" md>
           <Grid item>

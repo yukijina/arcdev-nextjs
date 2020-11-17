@@ -81,7 +81,7 @@ export default function Footer(props) {
 
           {/* 2 */}
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid container direction="column" spacing={2} style={{margin: 0}}>
               <Grid
                 item
                 className={classes.link}
@@ -135,7 +135,7 @@ export default function Footer(props) {
 
           {/* 3 */}
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid container direction="column" spacing={2} style={{margin: 0}}>
               <Grid
                 item
                 className={classes.link}
@@ -177,7 +177,7 @@ export default function Footer(props) {
 
           {/* 4 */}
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid container direction="column" spacing={2} style={{margin: 0}}>
               <Grid
                 item
                 className={classes.link}
@@ -210,7 +210,7 @@ export default function Footer(props) {
 
           {/* 5 */}
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid container direction="column" spacing={2} style={{margin: 0}}>
               <Grid
                 item
                 className={classes.link}

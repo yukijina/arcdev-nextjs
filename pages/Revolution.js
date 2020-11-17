@@ -450,7 +450,12 @@ export default function Revolution(props) {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src="/assets/reviewIcon.svg" alt="Magnifying glass" width="100%" />
+          <img 
+            src="/assets/reviewIcon.svg" 
+            alt="Magnifying glass" 
+            width="100%"
+            style={{ maxWidth: "40em" }}
+          />
         </Grid>
       </Grid>
 
@@ -562,7 +567,7 @@ export default function Revolution(props) {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src="/assets/review.svg" alt="magnifying glass" width="100%" />
+          <img src="/assets/review.svg" alt="magnifying glass" width="100%"  style={{ maxWidth: "40em" }} />
         </Grid>
       </Grid>
 
@@ -855,7 +860,7 @@ export default function Revolution(props) {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src="/assets/iterate.svg" alt="falling dominoes" width="100%" />
+          <img src="/assets/iterateIcon.svg" alt="falling dominoes" width="100%" />
         </Grid>
       </Grid>
       <Grid item>

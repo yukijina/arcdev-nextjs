@@ -223,7 +223,7 @@ export default function Contact(props) {
             <Grid item container style={{ marginTop: '2em' }}>
               <Grid item>
                 <img
-                  src="/assets/phoneIcon.svg"
+                  src="/assets/phone.svg"
                   alt="phone"
                   style={{ marginRight: '0.5em' }}
                 />
@@ -246,7 +246,7 @@ export default function Contact(props) {
             <Grid item container style={{ margiBottom: '2em' }}>
               <Grid item>
                 <img
-                  src="/assets/emailIcon.svg"
+                  src="/assets/email.svg"
                   alt="envelope"
                   style={{ marginRight: '0.5em', verticalAlign: 'bottom' }}
                 />
