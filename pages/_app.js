@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -6,6 +7,9 @@ import Theme from '../src/ui/theme';
 import App from 'next/app';
 import Header from '../src/ui/Header';
 import Footer from '../src/ui/Footer';
+
+// input actual google analytics code eg. "UA-151000000-1"
+ReactGA.initialize("UA-10000000000-1")
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
