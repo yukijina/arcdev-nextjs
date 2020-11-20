@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 //import Typography from '@material-ui/core/Typography';
@@ -162,6 +163,8 @@ const Header = (props) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
 
+  const [previousURL, setPreviousURL] = useState('') 
+
   const handleChange = (e, newValue) => {
     props.setValue(newValue);
   };
@@ -224,6 +227,14 @@ const Header = (props) => {
   ];
 
   useEffect(() => { 
+    // google analytics - comment on when you apply analytics
+    // if url is same page, it will not run but if different ga is applied
+    // per page visit 
+    if (previousURL !== wondow.location.pathname) {
+      setPreviousURL(window.location.pathame) 
+      ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+
     [...menuOptions, ...routes].forEach((route) => {
       switch (window.location.pathname) {
         case `${route.link}`:
