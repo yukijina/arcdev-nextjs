@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import  Link  from '../src/Link';
 import axios from 'axios';
 import Head from 'next/head'
@@ -135,6 +136,9 @@ export default function Contact(props) {
   // FYI - when you finish firebase setup
   const onConfirm = () => {
     setLoading(true);
+
+    ReactGA.event({ category: "Message", action: "Sent Message"})
+
     // add get url from firebase - the below url is placeholder (does not work)
     axios
       .get(
@@ -533,6 +537,7 @@ export default function Contact(props) {
             className={classes.estimateButton}
             onClick={() => {
               props.setValue(5);
+              ReactGA.event({ category: "Estimate", action: "Contact Page Pressed"})
             }}
           >
             Free Estimate

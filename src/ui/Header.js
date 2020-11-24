@@ -287,7 +287,7 @@ const Header = (props) => {
         variant="contained"
         color="secondary"
         className={classes.button}
-        onClick={() => props.setValue(5)}
+        onClick={() => {props.setValue(5); ReactGA.event({ category: "Estimate", action: "Desktop Header Pressed"})}}
       >
         Free Estimate
       </Button>
@@ -366,6 +366,7 @@ const Header = (props) => {
             onClick={() => {
               setOpenDrawer(false);
               props.setValue(5);
+              ReactGA.event({ category: "Estimate", action: "Mobile Header Pressed"});
             }}
             divider
             button

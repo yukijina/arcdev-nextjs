@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import axios from 'axios';
 import Head from 'next/head';
 import Lottie from 'react-lottie';
@@ -672,6 +673,7 @@ export default function Estimate() {
 
   const sendEstimate = () => {
     setLoading(true);
+    ReactGA.event({ category: "Estimate", action: "Estimate sent"})
 
     axios
       .get(
@@ -988,7 +990,7 @@ export default function Estimate() {
               getPlatforms();
               getFeatures();
               getCustomFeatures();
-              getCategory();
+              getCategory(); ReactGA.event({ category: "Estimate", action: "Estimate Checked"})
             }}
           >
             Get Estimate
