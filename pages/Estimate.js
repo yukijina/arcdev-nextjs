@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactGA from 'react-ga';
 import axios from 'axios';
 import Head from 'next/head';
@@ -378,6 +378,8 @@ export default function Estimate() {
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
 
+  const myRef = useRef(null)
+
   const [questions, setQuestions] = useState(defaultQuestions);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -414,6 +416,10 @@ export default function Estimate() {
   };
 
   const nextQuestion = () => {
+    // for small size, it scroll up to my Ref + 75 
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75)
+    }
     const newQuestions = cloneDeep(questions);
 
     const currentlyActive = newQuestions.filter((question) => question.active);
@@ -427,6 +433,10 @@ export default function Estimate() {
   };
 
   const previousQuestion = () => {
+     // for small size, it scroll up to my Ref + 75 
+     if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75)
+    }
     const newQuestions = cloneDeep(questions);
 
     const currentlyActive = newQuestions.filter((question) => question.active);
@@ -508,6 +518,10 @@ export default function Estimate() {
 
     switch (newSelected.title) {
       case 'Custom Software Development':
+         // for small size, it scroll up to my Ref + 75 
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75)
+    }
         setQuestions(softwareQuestions);
         setService(newSelected.title);
         setPlatforms([]);
@@ -870,7 +884,7 @@ export default function Estimate() {
           .filter((question) => question.active)
           .map((question, index) => (
             <React.Fragment key={index}>
-              <Grid item>
+              <Grid item ref={myRef}>
                 <Typography
                   align="center"
                   variant="h1"
@@ -902,20 +916,20 @@ export default function Estimate() {
                     component={Button}
                     onClick={() => handleSelect(option.id)}
                     style={{
-                      display: 'block',
+                      display: 'grid',
                       textTransform: 'none',
                       borderRadius: 0,
                       marginBottom: matchesSM ? '1.5em' : 0,
                       backgroundColor: option.selected
                         ? theme.palette.common.orange
-                        : undefined,
+                        : null,
                     }}
                     direction="column"
                     alignItems="center"
                     md
                     key={`{${option}-${index + 1}}`}
                   >
-                    <Grid item style={{ maxWidth: '14em' }}>
+                    <Grid item style={{ maxWidth:  '14em' }}>
                       <Typography
                         align="center"
                         variant="h6"
