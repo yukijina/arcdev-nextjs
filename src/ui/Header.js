@@ -230,7 +230,7 @@ const Header = (props) => {
     // google analytics - comment on when you apply analytics
     // if url is same page, it will not run but if different ga is applied
     // per page visit 
-    if (previousURL !== wondow.location.pathname) {
+    if (previousURL !== window.location.pathname) {
       setPreviousURL(window.location.pathame) 
       ReactGA.pageview(window.location.pathname + window.location.search)
     }
