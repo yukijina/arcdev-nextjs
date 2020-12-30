@@ -82,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 25,
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: 5,
+    },
   },
   icon: {
     marginLeft: '2em',
@@ -336,7 +339,7 @@ export default function LandingPage(props) {
                 Reach More. Discover More. Sell More.
               </Typography>
               <Typography variant="subtitle1">
-                Optimaized for Search Engine. Build for Dpeed.
+            Optimized for Search Engine, {matchesXS && <br />}built for speed.
                 {matchesSM ? null : <br />}
                 with either mobile platform.
               </Typography>

@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 25,
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: 5,
+    },
   },
   icon: {
     marginLeft: '2em',
@@ -36,6 +39,8 @@ const Services = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
+  
   return (
     <Grid container direction="column">
        <Head>
@@ -191,7 +196,7 @@ const Services = (props) => {
                 Reach More. Discover More. Sell More.
               </Typography>
               <Typography variant="subtitle1">
-                Optimaized for Search Engine. Build for Dpeed.
+                Optimized for Search Engine, {matchesSM && <br />} build for speed.
                 {matchesSM ? null : <br />}
                 with either mobile platform.
               </Typography>
