@@ -11,6 +11,11 @@ import Button from '@material-ui/core/Button';
 import Link from '../Link';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuList from '@material-ui/core/MenuList';
 // for media quary
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
@@ -100,6 +105,7 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: theme.palette.common.blue,
       color: 'white',
       borderRadius: '0px',
+      zIndex: 1302
     },
     menuItem: {
       ...theme.typography.tab,
@@ -187,6 +193,13 @@ const Header = (props) => {
     //setOpen(false);
     setOpenMenu(false);
   };
+
+  const handleListKeyDown = (event) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
 
   const menuOptions = [
     { name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0 },
@@ -291,7 +304,44 @@ const Header = (props) => {
       >
         Free Estimate
       </Button>
-      <Menu
+      <Popper open={openMenu} anchorEl={anchorEl} role={undefined} transition disablePortal>
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+            >
+              <Paper classes={{ root: classes.menu}} elevation={0}>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList 
+                    onMouseLeave={handleClose}
+                    autoFocusItem={open} 
+                    id="simple-menu" 
+                    onKeyDown={handleListKeyDown}
+                    disablePadding
+                  >
+                    {menuOptions.map((option, i) => (
+                    <MenuItem
+                      key={`${option}${i}`}
+                      component={Link}
+                      href={option.link}
+                      classes={{ root: classes.memuItem }}
+                      onClick={(event) => {
+                        handleMenuItemClick(event, i);
+                        props.setValue(1);
+                        handleClose();
+                      }}
+                      selected={i === props.selectedIndex && props.value === 1}
+                    >
+                      {option.name}
+                    </MenuItem>
+                  ))}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
+      {/* <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         //open={open}
@@ -304,23 +354,8 @@ const Header = (props) => {
         style={{ zIndex: 1302 }} //It is one above the appBar
         keepMounted //menu is always mounted on the dom - it is better for the SEO too
       >
-        {menuOptions.map((option, i) => (
-          <MenuItem
-            key={`${option}${i}`}
-            component={Link}
-            href={option.link}
-            classes={{ root: classes.memuItem }}
-            onClick={(event) => {
-              handleMenuItemClick(event, i);
-              props.setValue(1);
-              handleClose();
-            }}
-            selected={i === props.selectedIndex && props.value === 1}
-          >
-            {option.name}
-          </MenuItem>
-        ))}
-      </Menu>
+        
+      </Menu> */}
     </>
   );
 
