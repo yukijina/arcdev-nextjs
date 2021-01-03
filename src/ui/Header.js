@@ -202,24 +202,23 @@ const Header = (props) => {
   }
 
   const menuOptions = [
-    { name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0 },
     {
       name: 'Custom Software Development',
       link: '/customsoftware',
       activeIndex: 1,
-      selectedIndex: 1,
+      selectedIndex: 0,
     },
     {
       name: 'iOS/Android App Development',
       link: '/mobileapps',
       activeIndex: 1,
-      selectedIndex: 2,
+      selectedIndex: 1,
     },
     {
       name: 'Website Development',
       link: '/websites',
       activeIndex: 1,
-      selectedIndex: 3,
+      selectedIndex: 2,
     },
   ];
 
@@ -291,6 +290,7 @@ const Header = (props) => {
             aria-owns={route.ariaOwns}
             aria-haspopup={route.ariaPopup}
             onMouseOver={route.mouseOver}
+            onMouseLeave={() => setOpenMenu(false)}
           />
         ))}
       </Tabs>
@@ -304,15 +304,16 @@ const Header = (props) => {
       >
         Free Estimate
       </Button>
-      <Popper open={openMenu} anchorEl={anchorEl} role={undefined} transition disablePortal>
+      <Popper open={openMenu} anchorEl={anchorEl} placement="bottom-start" role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              style={{ transformOrigin: "top-left" }}
             >
               <Paper classes={{ root: classes.menu}} elevation={0}>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList 
+                   onMouseOver={() => setOpenMenu(true)}
                     onMouseLeave={handleClose}
                     autoFocusItem={open} 
                     id="simple-menu" 
@@ -330,7 +331,7 @@ const Header = (props) => {
                         props.setValue(1);
                         handleClose();
                       }}
-                      selected={i === props.selectedIndex && props.value === 1}
+                      selected={i === props.selectedIndex && props.value === 1 && window.location.pathname !== "/services"}
                     >
                       {option.name}
                     </MenuItem>
