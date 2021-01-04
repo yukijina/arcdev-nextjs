@@ -80,7 +80,7 @@ export default function CallToAction(props) {
       >
         <Grid container direction="column">
           <Grid item>
-            <Typography variant="h1" gutterButtom style={{ lineHeight: matchesSM ? 1.1 : null}}>
+            <Typography variant="h1" gutterBottom style={{ lineHeight: matchesSM ? 1.1 : null}}>
               Simple Software.
               <br />
               {matchesSM && <br />}

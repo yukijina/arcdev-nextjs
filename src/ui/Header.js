@@ -29,6 +29,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Grid from '@material-ui/core/Grid';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 //For nextjs, use url to import files
 // import logo from '../../assets/logo.svg';
@@ -146,6 +151,16 @@ const useStyles = makeStyles((theme) =>
     appbar: {
       zIndex: theme.zIndex.modal + 1, //material-ui zIndex - zIndex of modal component + 1
     },
+    expansion: {
+      backgroundColor: theme.palette.common.blue,
+      borderBottom: '1px solid rgba(0,0,0.12)',
+      "&.Mui-expanded" : {
+        margin: 0
+      }
+    },
+    expansionDetails: {
+      padding: 0
+    }
   })
 );
 
@@ -367,7 +382,7 @@ const Header = (props) => {
       <SwipeableDrawer
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
-        open={openDrawer}
+        open={!openDrawer}
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawer }}
@@ -376,7 +391,41 @@ const Header = (props) => {
         <div className={classes.toolbarMargin} />
         {/* disablePadding - there is a tiny padding and remove that */}
         <List disablePadding>
-          {routes.map((route) => (
+          {routes.map((route) => route.name === "Services" ? (
+            <ExpansionPanel elevation={0} classes={{ root:  classes.expansion }} key={route.name}>
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                {route.name} 
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails classes={{ root: classes.expansionDetails}}>
+                <Grid container direction="column">
+                  {menuOptions.map(route => (
+                    <Grid item>
+                      <ListItem
+                        key={`${route}${route.selectedIndex}`}
+                        divider
+                        button
+                        component={Link}
+                        href={route.link}
+                        selected={props.value === route.activeIndex}
+                        classes={{ selected: classes.drawerItemSelected }}
+                        onClick={() => {
+                          setOpenDrawer(false);
+                          props.setSelectedIndex(route.selectedIndex);
+                        }}
+                      >
+                        <ListItemText
+                          className={classes.drawerItem}
+                          disableTypography
+                        >
+                          {route.name}
+                        </ListItemText>
+                      </ListItem>
+                    </Grid>
+                  ))}
+                </Grid>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          ) : (
             <ListItem
               key={`${route}${route.activeIndex}`}
               divider
@@ -456,7 +505,7 @@ const Header = (props) => {
                 <style>{`.st0{fill:none}.st1{fill:#fff}.st2{font-family:Raleway; font-weight: 300;}.st6{fill:none;stroke:#000;stroke-width:3;stroke-miterlimit:10}`}</style>
                 <path d="M448.07-1l-9.62 17.24-8.36 14.96L369.93 139H-1V-1z"/>
                 <path className="st0" d="M-1 139h479.92v.01H-1z"/>
-                <text transform="translate(261.994 65.233)" Name="st1 st2" font-size="54">Development</text>
+                <text transform="translate(261.994 65.233)" name="st1 st2" fontSize="54">Development</text>
                 <path className="st0" d="M382.44 116.43l47.65-85.23 8.36-14.96M369.83 139l-.01.01L362 153"/>
                 <path d="M438.76 15.76l-56.42 100.91c-12.52-10.83-20.45-26.82-20.45-44.67 0-32.58 26.42-59 59-59 6.23 0 12.24.97 17.87 2.76z" fill="#0b72b9"/>
                 <path d="M479.89 72c0 32.58-26.42 59-59 59-14.73 0-28.21-5.4-38.55-14.33l56.42-100.91c23.85 7.57 41.13 29.89 41.13 56.24z"/>

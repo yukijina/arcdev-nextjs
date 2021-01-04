@@ -277,7 +277,7 @@ export default function About(props) {
           >
             <Grid item>
               <img
-                src="/asssets/puppy.svg"
+                src="/assets/puppy.svg"
                 style={{ maxWidth: matchesMD ? 300 : undefined }}
                 alt="grey spotted puppy"
               />

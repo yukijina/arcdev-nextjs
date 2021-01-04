@@ -1,4 +1,4 @@
-<Grid
+{/* <Grid
         item
         container
         direction={matchesMD ? 'column' : 'row'}
@@ -533,4 +533,4 @@
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img src="/assets/iterateIcon.svg" alt="falling dominoes" width="100%" />
         </Grid>
-      </Grid>
+      </Grid> */}
