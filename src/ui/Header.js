@@ -155,11 +155,19 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: theme.palette.common.blue,
       borderBottom: '1px solid rgba(0,0,0.12)',
       "&.Mui-expanded" : {
-        margin: 0
+        margin: 0,
+        borderBottom: 0
       }
     },
+    "&::before": {
+      backgroundColor:  'rgba(0,0,0, 0)',
+    },
     expansionDetails: {
-      padding: 0
+      padding: 0,
+      backgroundColor: theme.palette.primary.light
+    },
+    expansionSummary: {
+      padding: '0 24px 0 16px'
     }
   })
 );
@@ -382,7 +390,7 @@ const Header = (props) => {
       <SwipeableDrawer
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
-        open={!openDrawer}
+        open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawer }}
@@ -393,8 +401,15 @@ const Header = (props) => {
         <List disablePadding>
           {routes.map((route) => route.name === "Services" ? (
             <ExpansionPanel elevation={0} classes={{ root:  classes.expansion }} key={route.name}>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                {route.name} 
+              <ExpansionPanelSummary 
+                classes={{ root: classes.expansionSummary }} 
+                expandIcon={<ExpandMoreIcon color="secondary" />}>
+                <ListItemText
+                  className={classes.drawerItem}
+                  disableTypography
+                >
+                  {route.name}
+                </ListItemText>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails classes={{ root: classes.expansionDetails}}>
                 <Grid container direction="column">
@@ -406,7 +421,7 @@ const Header = (props) => {
                         button
                         component={Link}
                         href={route.link}
-                        selected={props.value === route.activeIndex}
+                        selected={props.selectedIndex === route.selectedIndex && props.value === 1 && window.location.pathnema !== "/services"}
                         classes={{ selected: classes.drawerItemSelected }}
                         onClick={() => {
                           setOpenDrawer(false);
@@ -416,8 +431,14 @@ const Header = (props) => {
                         <ListItemText
                           className={classes.drawerItem}
                           disableTypography
+                          onClick={() => {
+                            setOpenDrawer(false); 
+                            props.setValue(route.activeIndex);
+                          }}
                         >
-                          {route.name}
+                          <Link href={route.link} color="inherit">
+                            {route.name}
+                          </Link>
                         </ListItemText>
                       </ListItem>
                     </Grid>
