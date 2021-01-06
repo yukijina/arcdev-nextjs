@@ -167,15 +167,19 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: theme.palette.primary.light
     },
     expansionSummary: {
-      padding: '0 24px 0 16px'
+      padding: '0 24px 0 16px',
+      "&:hover" : {
+        backgroundColor: "rgba(0,0,0,0.08)"
+      },
+      backgroundColor: props => props.value === 1 ? 'rgba(0,0,0,0.14' : 'inherit'
     }
   })
 );
 
 // Props are from App.js
 const Header = (props) => {
-  // customersize style
-  const classes = useStyles();
+  // By adding 'props' as argument, useStyle above can access to props
+  const classes = useStyles(props);
 
   // theme and matches are for media query
   const theme = useTheme();
@@ -407,6 +411,7 @@ const Header = (props) => {
                 <ListItemText
                   className={classes.drawerItem}
                   disableTypography
+                  style={{ opacity: props.value === 1 ? 1 : null }}
                 >
                   {route.name}
                 </ListItemText>
@@ -437,7 +442,9 @@ const Header = (props) => {
                           }}
                         >
                           <Link href={route.link} color="inherit">
-                            {route.name}
+                            {route.name.split(" ").filter(word => word !== "Development").join(" ")}
+                            <br />
+                            <span style={{ fontSize: "0.75rem"}}>Development</span>
                           </Link>
                         </ListItemText>
                       </ListItem>
