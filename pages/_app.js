@@ -7,6 +7,7 @@ import Theme from '../src/ui/theme';
 import App from 'next/app';
 import Header from '../src/ui/Header';
 import Footer from '../src/ui/Footer';
+import Fonts from '../src/ui/Fonts';
 
 // input actual google analytics code eg. "UA-151000000-1"
 ReactGA.initialize("UA-10000000000-1")
@@ -16,6 +17,7 @@ export default function MyApp(props) {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
+    //Fonts()
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
