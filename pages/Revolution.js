@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import technologyAnimation from '../src/animations/technologyAnimation/data.json';
 import CallToAction from '../src/ui/CallToAction';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const useStyles = makeStyles((theme) => ({
   rowContainer: {
@@ -195,7 +196,7 @@ export default function Revolution(props) {
         style={{ marginTop: '5em' }}
       >
         <Grid item lg>
-          <img
+          <LazyLoadImage
             src="/assets/vision.svg"
             alt="mountain through binoclars"
             style={{
@@ -420,7 +421,7 @@ export default function Revolution(props) {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={section.icon} alt={section.iconAlt} width="100%" style={{ maxWidth: section.iconMaxWidth}} />
+          <LazyLoadImage threshold={300} src={section.icon} alt={section.iconAlt} width="100%" style={{ maxWidth: section.iconMaxWidth}} />
         </Grid>
       </Grid>
       ))}

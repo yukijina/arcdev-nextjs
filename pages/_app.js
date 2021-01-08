@@ -8,6 +8,7 @@ import App from 'next/app';
 import Header from '../src/ui/Header';
 import Footer from '../src/ui/Footer';
 import Fonts from '../src/ui/Fonts';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 // input actual google analytics code eg. "UA-151000000-1"
 ReactGA.initialize("UA-10000000000-1")
@@ -47,7 +48,9 @@ export default function MyApp(props) {
           setValue={setValue}
           setSelectedIndex={setSelectedIndex} 
         />
-        <Footer setValue={setValue} setSelectedIndex={setSelectedIndex} />
+        <LazyLoadComponent threshold={400}>
+         <Footer setValue={setValue} setSelectedIndex={setSelectedIndex} />
+        </LazyLoadComponent>
       </ThemeProvider>
     </React.Fragment>
   );
