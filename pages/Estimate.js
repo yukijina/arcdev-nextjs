@@ -5,7 +5,6 @@ import Head from 'next/head';
 import Lottie from 'react-lottie';
 import { cloneDeep } from 'lodash';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -17,7 +16,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
 import Snackbar from '@material-ui/core/Snackbar';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
 import estimateAnimation from '../src/animations/estimateAnimation/data.json';
 
 const useStyles = makeStyles((theme) => ({
@@ -384,15 +382,11 @@ export default function Estimate() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const [name, setName] = useState('');
-
   const [email, setEmail] = useState('');
   const [emailHelper, setEmailHelper] = useState('');
-
   const [phone, setPhone] = useState('');
   const [phoneHelper, setPhoneHelper] = useState('');
-
   const [message, setMessage] = useState('');
-
   const [total, setTotal] = useState(0);
   const [service, setService] = useState('');
   const [platforms, setPlatforms] = useState([]);
@@ -718,7 +712,7 @@ export default function Estimate() {
 
   const softwareSelections = (
     <Grid container direction="column">
-       <Head>
+      <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">Free Custom Software Estimate | Arc Development</title>
         <meta name="description" key="description" content="Use our free online estimate calculator to instantly check the cost of your custom sfotware, mobile app, or website design and development project!" />
@@ -740,29 +734,29 @@ export default function Estimate() {
             {`You want ${service} `}
             {platforms.length > 0
               ? `for ${
-                  //if only web application is selected...
+                //if only web application is selected...
+                platforms.indexOf('Web Application') > -1 &&
+                platforms.length === 1
+                  ? //then finish sentence here
+                    'a Web Application.'
+                  : //otherwise, if web application and another platform is selected...
                   platforms.indexOf('Web Application') > -1 &&
-                  platforms.length === 1
-                    ? //then finish sentence here
-                      'a Web Application.'
-                    : //otherwise, if web application and another platform is selected...
-                    platforms.indexOf('Web Application') > -1 &&
-                      platforms.length === 2
-                    ? //then finish the sentence here
-                      `a Web Application and an ${platforms[1]}.`
-                    : //otherwise, if only one platform is selected which isn't web application...
-                    platforms.length === 1
-                    ? //then finish the sentence here
-                      `an ${platforms[0]}`
-                    : //otherwise, if other two options are selected...
                     platforms.length === 2
-                    ? //then finish the sentence here
-                      'an iOS Application and an Android Application.'
-                    : //otherwise if all three are selected...
-                    platforms.length === 3
-                    ? //then finish the sentence here
-                      'a Web Application, an iOS Application, and an Android Application.'
-                    : null
+                  ? //then finish the sentence here
+                    `a Web Application and an ${platforms[1]}.`
+                  : //otherwise, if only one platform is selected which isn't web application...
+                  platforms.length === 1
+                  ? //then finish the sentence here
+                    `an ${platforms[0]}`
+                  : //otherwise, if other two options are selected...
+                  platforms.length === 2
+                  ? //then finish the sentence here
+                    'an iOS Application and an Android Application.'
+                  : //otherwise if all three are selected...
+                  platforms.length === 3
+                  ? //then finish the sentence here
+                    'a Web Application, an iOS Application, and an Android Application.'
+                  : null
                 }`
               : null}
           </Typography>

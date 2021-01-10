@@ -11,7 +11,7 @@ import Fonts from '../src/ui/Fonts';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 // input actual google analytics code eg. "UA-151000000-1"
-ReactGA.initialize("UA-10000000000-1")
+//ReactGA.initialize("UA-10000000000-1")
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

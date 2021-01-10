@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-//import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -16,13 +15,10 @@ import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
-// for media quary
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-//Deawer
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
-// Icon
 import MenuIcon from '@material-ui/icons/Menu';
 //List
 import List from '@material-ui/core/List';
@@ -81,6 +77,7 @@ const useStyles = makeStyles((theme) =>
     },
     logoContainer: {
       padding: 0,
+      width: '18rem',
       '&:hover': {
         backgroundColor: 'transparent', // eliminate a little opacity(black shade) when hovered
       },
@@ -100,7 +97,7 @@ const useStyles = makeStyles((theme) =>
       borderRadius: '50px',
       marginLeft: '50px',
       marginRight: '25px',
-      height: '45px',
+      height: '48px',
       '&:hover': {
         backgroundColor: theme.palette.secondary.light,
       },
@@ -270,7 +267,7 @@ const Header = (props) => {
     // if url is same page, it will not run but if different ga is applied
     // per page visit 
     if (previousURL !== window.location.pathname) {
-      setPreviousURL(window.location.pathame) 
+      setPreviousURL(window.location.pathname) 
       ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
@@ -296,7 +293,30 @@ const Header = (props) => {
           break;
       }
     });
-  }, [props.value, menuOptions, props.selectedIndex, routes, props]); // useEffect is depending on 'value' whenever value changes, it triggers
+  }, [props.value, menuOptions, props.selectedIndex, routes, props]); 
+
+  // Refactor - cause anchorEl errors at Revolution page
+  // const path = typeof window !== "undefined" ? window.location.pathname : null;
+
+  // const activeIndex = () => {
+  //   const found = routes.find(({ link }) => link === path)
+  //   const menuFound = menuOptions.find(({ link }) => link === path )
+
+  //   if (menuFound) {
+  //     props.setValue(1)
+  //     props.setSelectedIndex(menuFound.selectedIndex)
+  //   } else if (found === undefined) {
+  //     props.setValue(false)
+  //   } else {
+  //     props.setValue(found.activeIndex)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   activeIndex()
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // }, [path])
+
 
   const tabs = (
     <>
@@ -331,23 +351,30 @@ const Header = (props) => {
       >
         Free Estimate
       </Button>
-      <Popper open={openMenu} anchorEl={anchorEl} placement="bottom-start" role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: "top-left" }}
-            >
-              <Paper classes={{ root: classes.menu}} elevation={0}>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList 
-                   onMouseOver={() => setOpenMenu(true)}
-                    onMouseLeave={handleClose}
-                    autoFocusItem={open} 
-                    id="simple-menu" 
-                    onKeyDown={handleListKeyDown}
-                    disablePadding
-                  >
-                    {menuOptions.map((option, i) => (
+      <Popper 
+        open={openMenu} 
+        anchorEl={anchorEl} 
+        placement="bottom-start" 
+        role={undefined} 
+        transition 
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{ transformOrigin: "top-left" }}
+          >
+            <Paper classes={{ root: classes.menu}} elevation={0}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList 
+                  onMouseOver={() => setOpenMenu(true)}
+                  onMouseLeave={handleClose}
+                  autoFocusItem={false}
+                  id="simple-menu" 
+                  onKeyDown={handleListKeyDown}
+                  disablePadding
+                >
+                  {menuOptions.map((option, i) => (
                     <MenuItem
                       key={`${option}${i}`}
                       component={Link}
@@ -363,12 +390,12 @@ const Header = (props) => {
                       {option.name}
                     </MenuItem>
                   ))}
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
       {/* <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -407,7 +434,8 @@ const Header = (props) => {
             <ExpansionPanel elevation={0} classes={{ root:  classes.expansion }} key={route.name}>
               <ExpansionPanelSummary 
                 classes={{ root: classes.expansionSummary }} 
-                expandIcon={<ExpandMoreIcon color="secondary" />}>
+                expandIcon={<ExpandMoreIcon color="secondary" />}
+              >
                 <ListItemText
                   className={classes.drawerItem}
                   disableTypography
@@ -419,9 +447,8 @@ const Header = (props) => {
               <ExpansionPanelDetails classes={{ root: classes.expansionDetails}}>
                 <Grid container direction="column">
                   {menuOptions.map(route => (
-                    <Grid item>
+                    <Grid item key={`${route}${route.selectedIndex}`}>
                       <ListItem
-                        key={`${route}${route.selectedIndex}`}
                         divider
                         button
                         component={Link}

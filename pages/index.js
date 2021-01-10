@@ -151,7 +151,7 @@ export default function LandingPage(props) {
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
-       <Head>
+      <Head>
         <title key="title">Custom Software, Mobile Apps, and Website| Arc Development</title>
         <meta name="description" key="description" content="Pristine software custom-designed from the ground up with cutting-edge optimizations. Use our free estimate calculator to check your project cost!" />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | ArcDevelopment" key="og:title" />
@@ -344,7 +344,7 @@ export default function LandingPage(props) {
                 Reach More. Discover More. Sell More.
               </Typography>
               <Typography variant="subtitle1">
-            Optimized for Search Engine, {matchesXS && <br />}built for speed.
+                Optimized for Search Engine, {matchesXS && <br />}built for speed.
                 {matchesSM ? null : <br />}
                 with either mobile platform.
               </Typography>

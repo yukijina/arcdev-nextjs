@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   //ServiceContainer is for every columns(3). If you want to customeize each container style, use inlineStyle in each container (ex. style={{ marginTop '5em'}}
   serviceContainer: {
-    marginTop: '10em',
+    marginTop: '8em',
     [theme.breakpoints.down('sm')]: {
       padding: 25,
     },
@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Services = (props) => {
-  // material-ui
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
@@ -43,7 +42,7 @@ const Services = (props) => {
   
   return (
     <Grid container direction="column">
-       <Head>
+      <Head>
         <title key="title">Top Custom Software Development Services | Arc Development</title>
         <meta name="description" key="description" content="Cutting-edge software, mobile app, and website development services with sleek custom designs - get a free online estimate instantly!" />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | Services" key="og:title" />

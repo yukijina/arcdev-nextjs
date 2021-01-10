@@ -48,7 +48,7 @@ export default function About(props) {
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" style={{ marginTop: "6em" }}>
       <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">About Us - History & Team | Arc Development</title>

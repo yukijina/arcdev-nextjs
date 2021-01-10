@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactGA from 'react-ga';
-import  Link  from '../src/Link';
+import Link  from '../src/Link';
 import axios from 'axios';
 import Head from 'next/head'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -13,7 +13,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Snackbar from '@material-ui/core/Snackbar';
-
 import ButtonArrow from '../src/ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
@@ -136,7 +135,6 @@ export default function Contact(props) {
   // FYI - when you finish firebase setup
   const onConfirm = () => {
     setLoading(true);
-
     ReactGA.event({ category: "Message", action: "Sent Message"})
 
     // add get url from firebase - the below url is placeholder (does not work)
@@ -184,7 +182,7 @@ export default function Contact(props) {
 
   return (
     <Grid container direction="row">
-       <Head>
+      <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">Contact Us | Arc Development</title>
         <meta name="description" key="description" content="Let us guide you through the custom software design and develipment process. Send us a message with any of your ideas or questions to get started!" />
@@ -325,14 +323,6 @@ export default function Contact(props) {
                   style={{ marginTop: '2em' }}
                 >
                   <Button
-                    // disabled={
-                    //   name.length === 0 ||
-                    //   message.length === 0 ||
-                    //   email.length === 0 ||
-                    //   phone.length === 0 ||
-                    //   emailHelper.length !== 0 ||
-                    //   phoneHelper.length !== 0
-                    // }
                     variant="contained"
                     className={classes.sendButton}
                     onClick={() => setOpen(true)}
@@ -447,14 +437,6 @@ export default function Contact(props) {
             </Grid>
             <Grid item>
               <Button
-                // disabled={
-                //   name.length === 0 ||
-                //   message.length === 0 ||
-                //   email.length === 0 ||
-                //   phone.length === 0 ||
-                //   emailHelper.length !== 0 ||
-                //   phoneHelper.length !== 0
-                // }
                 variant="contained"
                 className={classes.sendButton}
                 onClick={onConfirm}

@@ -170,8 +170,8 @@ export default function Revolution(props) {
 
 
   return (
-    <Grid container direction="column">
-       <Head>
+    <Grid container direction="column" style={{ marginTop: "7em"}}>
+      <Head>
         <title key="title">The Revolution - Cutting-Edge Software | Arc Development</title>
         <meta name="description" key="description" content="Visionary insights, coupled with cutting-edge technology is a recipe for revolution. Get a free online estimate instantly!" />
         <meta property="og:title" conent="Bringing West Coast Technology to the Midwest | Revolution" key="og:title" />
@@ -381,14 +381,15 @@ export default function Revolution(props) {
         </Grid>
       </Grid>
 
-      {sections.map(section => (
+      {sections.map((section, i) => (
         <Grid
-        item
-        container
-        direction={matchesMD ? 'column' : 'row'}
-        justify={matchesMD ? 'center' : undefined}
-        className={classes.rowContainer}
-        style={{ backgroundColor: section.backgroundColor, height: '90em' }}
+          item
+          container
+          direction={matchesMD ? 'column' : 'row'}
+          justify={matchesMD ? 'center' : undefined}
+          className={classes.rowContainer}
+          style={{ backgroundColor: section.backgroundColor, height: '90em' }}
+          key={`${section.title}${i}`}
         >
         <Grid
           item
@@ -410,25 +411,28 @@ export default function Revolution(props) {
           <Grid item>
             {section.paragraphs.map(text => (
               <Typography
-              variant="body1"
-              align={matchesMD ? 'center' : undefined}
-              style={{ color: '#fff', maxWidth: '20em' }}
-              paragraph
-             >
+                variant="body1"
+                align={matchesMD ? 'center' : undefined}
+                style={{ color: '#fff', maxWidth: '20em' }}
+                paragraph
+                key={text}
+              >
                {text}
              </Typography>
             ))}
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <LazyLoadImage threshold={300} src={section.icon} alt={section.iconAlt} width="100%" style={{ maxWidth: section.iconMaxWidth}} />
+          <LazyLoadImage 
+            threshold={300} 
+            src={section.icon} 
+            alt={section.iconAlt} 
+            width="100%" 
+            style={{ maxWidth: section.iconMaxWidth}} 
+          />
         </Grid>
       </Grid>
       ))}
-
-      
- 
-
       
       <Grid item>
         <CallToAction setValue={props.setValue} />

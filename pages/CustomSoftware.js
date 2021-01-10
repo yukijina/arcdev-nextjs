@@ -8,12 +8,10 @@ import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-
 import documentsAnimation from '../src/animations/documentsAnimation/data';
 import scaleAnimation from '../src/animations/scaleAnimation/data.json';
 import automationAnimation from '../src/animations/automationAnimation/data.json';
 import uxAnimation from '../src/animations/uxAnimation/data';
-
 import CallToAction from '../src/ui/CallToAction';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +82,7 @@ export default function CustomSoftware(props) {
 
   return (
     <Grid container direction="column">
-       <Head>
+      <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">Custom Software Development and Design - Free Estimate</title>
         <meta name="description" key="description" content="Cutting-edge custom software development with gorgeous designs from scratch - let us optimize your business, solving problems insted of creating new ones." />
@@ -357,7 +355,7 @@ export default function CustomSoftware(props) {
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
-              src="/assets/roots.svg"
+              src="/assets/root.svg"
               alt="tree with roots extending out"
               height={matchesSM ? '300em' : '450em'}
               width={matchesSM ? '300em' : '450em'}

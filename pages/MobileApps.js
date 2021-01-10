@@ -8,7 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-
 import integrationAnimation from '../src/animations/integrationAnimation/data.json';
 import CallToAction from '../src/ui/CallToAction';
 
@@ -48,7 +47,7 @@ export default function MobileApps(props) {
 
   return (
     <Grid container direction="column">
-       <Head>
+      <Head>
         {/* This title is displayed in the tab (next to favicon) */}
         <title key="title">iOS/Android App Design and Development | Arc Development</title>
         <meta name="description" key="description" content="Mobile Apps Made Easy | Our cutting -edge mobile app development process let us build beautifully designed, carefully crafted apps for both iOS and Android." />
